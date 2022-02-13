@@ -14,7 +14,8 @@ def entropy(word, word_set=dw):
                 res_dict[res] += 1
             except KeyError:
                 res_dict[res] = 1
-    return float(sum([log2(len(word_set)/i)*i/len(word_set) for i in res_dict.values()]))
+    return float(sum([log2(len(word_set) / i) * i / len(word_set) for i in res_dict.values()]))
+
 
 def reload_entropy(path="default_words.txt", log=False):
     word_set = lcw(path)
@@ -22,16 +23,23 @@ def reload_entropy(path="default_words.txt", log=False):
     for i in range(len(word_set)):
         entropies[entropy(word_set[i], word_set)] = word_set[i]
         if log:
-            print(f"{i+1}/{len(word_set)}")
+            print(f"{i + 1}/{len(word_set)}")
 
     res = "\n".join([entropies[i] + "\t" + str(i) for i in sorted(entropies.keys(), reverse=True)])
     try:
-        remove(path[:-4]+".entropy")
+        remove(path[:-4] + ".entropy")
     except FileNotFoundError:
         pass
     finally:
-        with open(path[:-4]+".entropy", 'x') as entropy_file:
+        with open(path[:-4] + ".entropy", 'x') as entropy_file:
             entropy_file.write(res)
+
+
+def get_entropy_dict(entropy_file_location):
+    with open(entropy_file_location, 'r') as f:
+        return {i.split("\t")[0]: i.split("\t")[0] for i in f.read().split("\n")}
+
+ged = get_entropy_dict()
 
 if __name__ == '__main__':
     reload_entropy("usr/words.txt", log=True)
