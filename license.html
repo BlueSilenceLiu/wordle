@@ -13,10 +13,22 @@
             border-style: none solid;
             padding: 5px;
         }
+        .tool{
+            position: fixed;
+            top: 80%;
+            width: 50%;
+            left: 25%;
+            text-align: center
+        }
         p{
             word-break: keep-all
         }
     </style>
+    <script>
+        function copyText(){
+            navigator.clipboard.writeText('Copyright © 2022 Blue Silence Liu\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included\nin all copies or substantial portions of the Software.');
+        }
+    </script>
 </head>
 <body>
     <div class="main">
@@ -37,6 +49,9 @@
             HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
             CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
             OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</b></p>
+    </div>
+    <div class="tool">
+        <button onclick="javascript:copyText();alert('text copied successfully');">copy requested content</button>
     </div>
 </body>
 </html>
