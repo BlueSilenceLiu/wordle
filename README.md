@@ -1,4 +1,4 @@
-##Info. table
+## Info. table
 
 <table>
     <tr>
