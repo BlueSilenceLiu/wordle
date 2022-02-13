@@ -12,6 +12,7 @@ def main(word_set=dw, outputs="CEN", entropy_file_location="default_words.entrop
         solver.inp(res, usr_answer)
         print("here are all the available answers:")
         answers = [entropy_dict_r[i]+"\t"+str(i) for i in sorted([entropy_dict[i] for i in solver.get()])]
+        print("words\tentropy")
         if len(answers) <= 40:
             print("\n".join(answers))
         else:
