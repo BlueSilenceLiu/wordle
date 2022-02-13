@@ -1,7 +1,8 @@
-# load words
+from entropy import reload_entropy as ree
 
 def load_custom_words(position="usr/words.txt", word_len=5):
     with open(position, 'r') as words:
+        ree(position)
         return sorted([word.strip().lower() for word in words.readlines()
                        if (len(word) == word_len+1 and "\n" in word) or (len(word) == word_len and "\n" not in word)])
 
