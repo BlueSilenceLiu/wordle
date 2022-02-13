@@ -11,4 +11,10 @@ class Solver:
         self.rsv.inp(res, word)
 
     def get(self):
+        unavailable = []
+        for w in self.ent.keys():
+            if w not in self.rsv.available:
+                unavailable.append(w)
+        for w in unavailable:
+            del self.ent[w]
         return max(zip(self.ent.values(), self.ent.keys()))[1]
