@@ -1,8 +1,5 @@
 # load words
 
-METHODS = ["load_custom_words", "lcw"]
-ATTRIBUTES = ["default_words", "dw"]
-
 def load_custom_words(position="usr/words.txt", word_len=5):
     with open(position, 'r') as words:
         return sorted([word.strip().lower() for word in words.readlines()
