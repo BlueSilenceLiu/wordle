@@ -39,7 +39,7 @@ def get_entropy_dict(entropy_file_location):
     with open(entropy_file_location, 'r') as f:
         return {i.split("\t")[0]: i.split("\t")[1] for i in f.read().split("\n")}
 
-ged = get_entropy_dict()
+ged = get_entropy_dict
 
 if __name__ == '__main__':
     reload_entropy("usr/words.txt", log=True)
